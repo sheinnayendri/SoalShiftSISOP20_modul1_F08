@@ -200,3 +200,5 @@ Output original file name dari hasil didekripsi:
 ![soal2b](https://user-images.githubusercontent.com/48936125/74812554-4c2b7300-5326-11ea-9256-ea2ad9de2018.png)
 
 #
+
+## Soal 3
