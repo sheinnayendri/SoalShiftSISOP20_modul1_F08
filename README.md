@@ -10,7 +10,7 @@ Soal Shift Sistem Operasi 2020
 #
 
 ## Soal1
-Soal ini meminta agar kami dapat menampilkan laporan berdasarkan data yang ada pada file "Sample-Superstore.csv". Laporan yang diminta adalah sebagai berikut:
+Soal ini meminta agar kami dapat menampilkan laporan berdasarkan data yang ada pada file "Sample-Superstore.tsv". Laporan yang diminta adalah sebagai berikut:
 
 1. (a) Tentukan wilayah bagian (region) mana yang memiliki keuntungan (profit) paling sedikit.
 2. (b) Tampilkan 2 negara bagian (state) yang memiliki keuntungan (profit) paling sedikit berdasarkan hasil poin a.
