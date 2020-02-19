@@ -20,7 +20,7 @@ Hint: Gunakan Awk dan Command pendukung.
 #
 
 ### Jawab 1a
-Pertama-tama, karena file Sample-Superstore.csv bertipe file csv (Comma-Separated Values), maka digunakan command ```FS = ","``` agar awk dapat memilah text setiap menemukan tanda baca koma (,).
+Pertama-tama, karena file Sample-Superstore.tsv bertipe file tsv (Tab-Separated Values), maka digunakan command ```FS = "\t"``` agar awk dapat memilah text setiap menemukan tanda baca koma (,).
 
 Karena field wilayah bagian (region) berada pada kolom ke-13, maka dapat diakses dengan syntax ```$13``` (sebagai argumen ke-13), sedangkan field profit berada pada kolom ke-21, maka dapat diakses dengan syntax ```$21``` (sebagai argumen ke-21). Kemudian untuk mengelompokkan total profit yang didapatkan masing-masing region, dapat menggunakan array yang bersifat seperti map (dalam C), di mana index-nya merupakan nama region, dan value/isinya merupakan profit total masing-masing region.
 
@@ -28,7 +28,7 @@ Akan tetapi, dikarenakan field header ("Region") dapat terlacak sebagai salah sa
 
 Syntax AWK soal 1a adalah sebagai berikut:
 ```awk
-awk 'BEGIN { FS = "," }
+awk 'BEGIN { FS = "\t" }
 { if( $13 != "Region" ) { a[$13] += $21 } }
 END { for(b in a) { print a[b], b } }' Sample-Superstore.csv | sort -g | head -1
 ```
@@ -44,7 +44,7 @@ Sedangkan untuk menampilkan 2 state dengan profit terendah, selain menggunakan p
 
 Syntax AWK soal 1b adalah sebagai berikut:
 ```awk
-awk 'BEGIN { FS = "," } 
+awk 'BEGIN { FS = "\t" } 
 { if( $13 == "Central" ) { a[$11] += $21 } } 
 END { for(b in a) { print a[b], b } }' Sample-Superstore.csv  | sort -g | head -2
 ```
@@ -59,7 +59,7 @@ Sama seperti soal 1a dan 1b, menggunakan argumen dan array untuk menjumlah total
 
 Syntax AWK soal 1c adalah sebagai berikut:
 ```awk
-awk 'BEGIN { FS = "," }
+awk 'BEGIN { FS = "\t" }
 { if( $11 == "Texas" || $11 == "Illinois" ) { a[$17] += $21 } }
 END { for(b in a) { print a[b], b } }' Sample-Superstore.csv | sort -g | head -10
 ```
