@@ -4,12 +4,12 @@ Soal Shift Sistem Operasi 2020
 1. Sheinna Yendri (18-038)
 2. Muhammad Rafi Yudhistira (18-115)
 #
-1. [Soal 1](##soal1)
-2. [Soal 2](##soal2)
-3. [Soal 3](##soal3)
+1. [Soal1](##soal1)
+2. [Soal2](##soal2)
+3. [Soal3](##soal3)
 #
 
-## Soal 1
+## Soal1
 Soal ini meminta agar kami dapat menampilkan laporan berdasarkan data yang ada pada file "Sample-Superstore.csv". Laporan yang diminta adalah sebagai berikut:
 
 1. (a) Tentukan wilayah bagian (region) mana yang memiliki keuntungan (profit) paling sedikit.
@@ -67,7 +67,7 @@ Output:
 
 #
 
-## Soal 2
+## Soal2
 1. (a) Soal ini meminta kami untuk mengenerate password random yang memiliki kriteria sebagai berikut:
 * Terdiri dari 28 karakter.
 * Hanya mengandung karakter huruf besar, huruf kecil, serta angka.
