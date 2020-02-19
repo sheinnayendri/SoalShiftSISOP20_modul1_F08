@@ -51,7 +51,7 @@ END { for(b in a) { print a[b], b } }' Sample-Superstore.tsv  | sort -g | head -
 
 Output:
 
-![soal1b](https://user-images.githubusercontent.com/48936125/74815126-3cfaf400-532b-11ea-9b8c-a3d0274f27fb.png)
+![soal1b](https://user-images.githubusercontent.com/48936125/74815329-a11db800-532b-11ea-83ed-4cc3b3398810.png)
 #
 
 ### Jawab 1c
@@ -65,7 +65,7 @@ END { for(b in a) { print a[b], b } }' Sample-Superstore.tsv | sort -g | head -1
 ```
 Output:
 
-![soal1c](https://user-images.githubusercontent.com/48936125/74815091-248ad980-532b-11ea-9361-2a51cfe77e2a.png)
+![soal1c](https://user-images.githubusercontent.com/48936125/74815385-b692e200-532b-11ea-82e5-8b5bceab8468.png)
 #
 
 ## Soal2
