@@ -30,7 +30,7 @@ Syntax AWK soal 1a adalah sebagai berikut:
 ```awk
 awk 'BEGIN { FS = "\t" }
 { if( $13 != "Region" ) { a[$13] += $21 } }
-END { for(b in a) { print a[b], b } }' Sample-Superstore.csv | sort -g | head -1
+END { for(b in a) { print a[b], b } }' Sample-Superstore.tsv | sort -g | head -1
 ```
 
 Output:
@@ -46,7 +46,7 @@ Syntax AWK soal 1b adalah sebagai berikut:
 ```awk
 awk 'BEGIN { FS = "\t" } 
 { if( $13 == "Central" ) { a[$11] += $21 } } 
-END { for(b in a) { print a[b], b } }' Sample-Superstore.csv  | sort -g | head -2
+END { for(b in a) { print a[b], b } }' Sample-Superstore.tsv  | sort -g | head -2
 ```
 
 Output:
@@ -61,7 +61,7 @@ Syntax AWK soal 1c adalah sebagai berikut:
 ```awk
 awk 'BEGIN { FS = "\t" }
 { if( $11 == "Texas" || $11 == "Illinois" ) { a[$17] += $21 } }
-END { for(b in a) { print a[b], b } }' Sample-Superstore.csv | sort -g | head -10
+END { for(b in a) { print a[b], b } }' Sample-Superstore.tsv | sort -g | head -10
 ```
 Output:
 
