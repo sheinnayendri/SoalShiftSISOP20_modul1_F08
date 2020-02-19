@@ -4,9 +4,9 @@ Soal Shift Sistem Operasi 2020
 1. Sheinna Yendri (18-038)
 2. Muhammad Rafi Yudhistira (18-115)
 #
-1. [Soal 1](#soal1)
-2. [Soal 2](#soal2)
-3. [Soal 3](#soal3)
+1. [Soal 1](##soal1)
+2. [Soal 2](##soal2)
+3. [Soal 3](##soal3)
 #
 
 ## Soal 1
