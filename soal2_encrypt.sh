@@ -31,7 +31,6 @@ CONV=("tr 'a-zA-Z' 'a-zA-Z'"
 	"tr 'a-zA-Z' 'z-za-yZ-ZA-Y'")
 
 namabaru=$(echo $nama | ${CONV[$hour]})
-namafix=$namabaru\_$hour
 
-(< /dev/urandom tr -dc A-Za-z0-9 | head -c28;) > $namafix.txt
+(< /dev/urandom tr -dc A-Za-z0-9 | head -c28;) > $namabaru.txt
 
