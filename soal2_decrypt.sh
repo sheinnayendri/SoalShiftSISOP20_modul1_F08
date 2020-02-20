@@ -1,6 +1,6 @@
 #!/bin/bash
 
-awal="$(cut -d'.' -f1 <<<"$1")"
+nama="$(cut -d'.' -f1 <<<"$1")"
 hour=`date -r $nama.txt "+%H"`
 
 CONV=("tr 'a-zA-Z' 'a-zA-Z'"
