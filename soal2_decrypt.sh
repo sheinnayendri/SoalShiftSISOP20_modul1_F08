@@ -1,10 +1,7 @@
 #!/bin/bash
 
 awal="$(cut -d'.' -f1 <<<"$1")"
-nama="$(cut -d'_' -f1 <<<"$awal")"
-hour=`date +"%H"`
-awal="$(cut -d'.' -f1 <<<"$1")"
-hour="$(cut -d'_' -f2 <<<"$awal")"
+hour=`date -r $nama.txt "+%H"`
 
 CONV=("tr 'a-zA-Z' 'a-zA-Z'"
 	"tr 'b-za-aB-ZA-A' 'a-zA-Z'"
