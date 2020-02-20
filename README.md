@@ -83,9 +83,9 @@ Output:
 ### Jawab 2a
 Pertama-tama, kami menggunakan bantuan library ```tr``` dari BASH untuk mengerate password random sesuai kriteria, dengan syntax sebagai berikut:
 ```bash
-(< /dev/urandom tr -dc A-Za-z0-9 | head -c28;) > $namafix.txt
+(< /dev/urandom tr -dc A-Za-z0-9 | head -c28;) > $namabaru.txt
 ```
-Syntax ```A-Za-z0-9``` membatasi agar password random yang digenerate hanya mengandung huruf besar, huruf kecil, serta angka. Sedangkan syntax ```head -c28``` membatasi agar password random yang digenerate terdiri dari 28 karakter. Kemudian lambang ```>``` berarti hasil password yang digenerate akan disimpan dalam suatu file bertipe ```.txt``` bernama ```$namafix```.
+Syntax ```A-Za-z0-9``` membatasi agar password random yang digenerate hanya mengandung huruf besar, huruf kecil, serta angka. Sedangkan syntax ```head -c28``` membatasi agar password random yang digenerate terdiri dari 28 karakter. Kemudian lambang ```>``` berarti hasil password yang digenerate akan disimpan dalam suatu file bertipe ```.txt``` bernama ```$namabaru```.
 #
 
 ### Jawab 2b
@@ -136,30 +136,23 @@ CONV=("tr 'a-zA-Z' 'a-zA-Z'"
 Kemudian untuk meng-enkripsi nama yang telah disimpan dalam variable ```$nama``` akan dikonversi dengan bantuan library ```tr``` dan pipe ```|```, sebagai berikut:
 ```bash
 namabaru=$(echo $nama | ${CONV[$hour]})
-namafix=$namabaru\_$hour
 ```
 Sekarang variable namabaru akan berisi nama yang sudah dienkripsi sesuai dengan jam di-generate-nya password tersebut.
 Perintah ```tr 'a-zA-Z' 'z-za-yZ-ZA-Y'``` memiliki makna untuk mengubah setiap karakter a menjadi z, b menjadi a, dan seterusnya, begitu juga dengan A menjadi Z, ..., hingga Z menjadi Y.
 
-Dikarenakan kami mungkin memerlukan nama asli text tersebut kembali (sebelum dienkripsi), maka dibutuhkan program untuk dekripsi nama file tersebut, akan tetapi tentu saja kami harus tahu pada pukul berapa password random tadi di-generate, agar dapat men-dekripsi pada format yang sesuai. Oleh karena itu, kami memodifikasi nama file dengan menambahkan ```_[jam_generate_password]``` agar saat ingin melakukan dekripsi nama file, kami tahu selisih caesar ciphernya berapa. Karena semisal nama file password.txt digenerate pada pukul 13.54, maka akan berubah menjadi ```cnffjbeq.txt``` (selisih = 13), tetapi saat ingin mendekripsi nama file, jam berubah menjadi pukul 14.02, maka file ```cnffjbeq.txt``` akan didekripsi menjadi ```ozrrvnqc.txt``` bukan nama sebenarnya yaitu ```password.txt```. Jadi nama file yang baru akan kami simpan menjadi ```cnffjbeq_13.txt``` menandakan di-generate pada pukul 13.
-
 Output enkripsi nama file dan isi file password random:
-![soal2a](https://user-images.githubusercontent.com/48936125/74812504-39b13980-5326-11ea-90eb-35baf29b3e21.png)
-![soal2aa](https://user-images.githubusercontent.com/48936125/74812516-3ddd5700-5326-11ea-804c-fcea9f93aa45.png)
-![soal2jam](https://user-images.githubusercontent.com/48936125/74812594-59486200-5326-11ea-90db-43b32e2ea228.png)
+![soal2a](https://user-images.githubusercontent.com/48936125/74936333-85dea580-541c-11ea-8b25-b5a2b6bae15f.png)
+![soal2jam](https://user-images.githubusercontent.com/48936125/74936340-88d99600-541c-11ea-82ac-f3c675ebfc94.png)
 
 #
 
 ### Jawab 2d
-Untuk mendekripsi, kami membuat file program bash terpisah bernama ```soal2_decrypt.sh``` dengan parameter nama file yang akan didekripsi dengan format ```[nama_yang_ingin_didekrpsi]_[jam_digenerate].txt```. Untuk men-separasi argumen yang diinputkan:
+Untuk mendekripsi, kami membuat file program bash terpisah bernama ```soal2_decrypt.sh``` dengan parameter nama file yang akan didekripsi dengan format ```[nama_yang_ingin_didekrpsi].txt```. Untuk men-separasi argumen yang diinputkan:
 ```bash
-awal="$(cut -d'.' -f1 <<<"$1")"
-nama="$(cut -d'_' -f1 <<<"$awal")"
-hour=`date +"%H"`
-awal="$(cut -d'.' -f1 <<<"$1")"
-hour="$(cut -d'_' -f2 <<<"$awal")"
+nama="$(cut -d'.' -f1 <<<"$1")"
+hour=`date -r $nama.txt "+%H"`
 ```
-Fungsi ```cut``` sama seperti yang telah dijabarkan di soal 2c. Sehingga variable nama akan berisi nama yang ingin didekripsi, sedangkan hour akan berisi jam di-generatenya password tadi.
+Fungsi ```cut``` sama seperti yang telah dijabarkan di soal 2c. Sehingga variable nama akan berisi nama yang ingin didekripsi, sedangkan variable hour akan berisi jam terakhir file dengan nama ```$nama``` dimodifikasi (dapat dinyatakan dengan dibuat, karena file ini tidak diedit) menggunakan syntax ```date -r [namafile].txt "+%H"```. Jam file tersebut terakhir dimodifikasi diperlukan agar dapat mendekripsi kembali sesuai dengan jam dibuatnya, agar perhitungan selisih enkripsi caesar cipher tidak kacau/bergeser.
 
 Untuk dekripsi kami juga menggunakan library ```tr``` yang disimpan dalam array CONV sebagai berikut:
 ```bash
@@ -197,7 +190,7 @@ echo "Original file name: "$namaawal".txt"
 ```
 
 Output original file name dari hasil didekripsi:
-![soal2b](https://user-images.githubusercontent.com/48936125/74812554-4c2b7300-5326-11ea-9256-ea2ad9de2018.png)
+![soal2b](https://user-images.githubusercontent.com/48936125/74936409-a870be80-541c-11ea-8ff4-b3946050f26c.png)
 
 #
 
