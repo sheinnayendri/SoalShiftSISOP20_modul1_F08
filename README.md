@@ -206,6 +206,7 @@ c. Setelah men-download gambar, kita ditugaskan untuk mem-buat script untuk men-
 #
 
 ### Soal3a
+Pertama-tama, kita membuat file dengan nama "no3.sh". bash script ini akan berfungsi selain mendowonload, juga untuk men sortir gambar-gambar apakah dia akan masuk ./duplicate atau ./kenangan. berikut adalah script "no3.sh" bagian untuk mendownload 28 file gambar:
 ```bash
 #! /bin/bash
 
@@ -224,27 +225,33 @@ done
 grep "Location" /home/rapuyy/Downloads/tugas/prak1/no3/wget.log > /home/rapuyy/Downloads/tugas/prak1/no3/location.log
 
 ```
+disitu kami melakukan perulangan sebanyak 28 kali menggunakan for. selagi mendownload, kita sekaligus mengubah wget menjadi`wget -a /home/rapuyy/Downloads/tugas/prak1/no3/wget.log "https://loremflickr.com/320/240/cat" -O /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$a".jpeg` agar saat file terdownload, namanya berubah menjadi format sesuai soal.
+
+#
+
 ### Soal3b
 untuk bagian 3b, kita akan membuat crontab agar pendownload-an bisa dilakukan secara otomatis dengan syarat sesuai soal. berikut adalah crontab nya :
 > 5 6-23/8 * * 0-5 bash /home/rapuyy/Downloads/tugas/prak1/no3/no3.sh
 
+#
+
 ### soal3c
 setelah file di download, kita membuat script untuk men-sortir gambar untuk menentukan apakah dia masuk ./duplikat atau masuk ./kenangan. codingannya:
 ```bash
-readarray -t arr < location.log
+readarray -t arr < /home/rapuyy/Downloads/tugas/prak1/no3/location.log
 flag=0
 for((a=0; a<28; a=a+1)) 
 do
-	nomer=$(ls -1 kenangan | wc -l)
-	nomer2=$(ls -1 duplicate | wc -l)
+	nomer=$(ls -1 /home/rapuyy/Downloads/tugas/prak1/no3/kenangan | wc -l)
+	nomer2=$(ls -1 /home/rapuyy/Downloads/tugas/prak1/no3/duplicate | wc -l)
 	flag=$((0))
-	#echo ${arr[$a]}, $nomer ,$nomer2
+	#echo ${arr[$a]}, $nomer ,$nomer2 
 	#echo pdkt_kusuma_"$(($a+1))".jpeg
 	for((i=0; i<$a; i=i+1)) 
 		do 
 		#echo perbandingan["$(($a+1))"]dengan["$(($i+1))"]
 		if [ $a -eq 0 ] 
-			then mv pdkt_kusuma_1.jpeg kenangan/kenangan_1.jpeg
+			then mv /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_1.jpeg kenangan/kenangan_1.jpeg
 			
 		
 		elif [ "${arr[$a]}" == "${arr[$i]}" ] 
@@ -259,12 +266,14 @@ do
 	
 	if [ $flag -eq 0 ] 
 	then 
-		mv pdkt_kusuma_"$(($a+1))".jpeg kenangan_"$(($nomer+1))".jpeg
-		#echo case1
+		mv /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$(($a+1))".jpeg /home/rapuyy/Downloads/tugas/prak1/no3/kenangan/kenangan_"$(($nomer+1))".jpeg
+		echo case1
 	else 
-		#echo case2
-		mv pdkt_kusuma_"$(($a+1))".jpeg duplicate_"$(($nomer2+1))".jpeg
+		echo case2
+		mv /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$(($a+1))".jpeg /home/rapuyy/Downloads/tugas/prak1/no3/duplicate/duplicate_"$(($nomer2+1))".jpeg
 	fi
 
 done
 ```
+
+#
