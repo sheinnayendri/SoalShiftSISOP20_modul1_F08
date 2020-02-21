@@ -8,7 +8,7 @@ mkdir /home/rapuyy/Downloads/tugas/prak1/no3/duplicate
 
 for ((a=1; a<=28; a=a+1))
 	do
-	wget -a /home/rapuyy/Downloads/tugas/prak1/no3/wget.log "https://loremflickr.com/320/240/cat" -O pdkt_kusuma_"$a".jpeg #rapuyy buat temp
+	wget -a /home/rapuyy/Downloads/tugas/prak1/no3/wget.log "https://loremflickr.com/320/240/cat" -O /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$a".jpeg #rapuyy buat temp
 #	cat rapuyy.txt >> wget.log
 done
 
