@@ -195,3 +195,13 @@ Output original file name dari hasil didekripsi:
 #
 
 ## Soal3
+1. Soal ini meminta kami untuk:
+a. Membuat script untuk mendownload 28 *file* gambar dari "https://loremflickr.com/320/240/cat" menggunakan wget dan menyimpan hasilnya dengan format nama "pdkt_kusuma_NO" serta menyimpan **log message wget** di file "wget.log"
+b. Membuat penjadwalan untuk mendownload seperti yang di jelaskan soal a, dengan persyaratan :
+	* file di download setiap 8 jam
+	* setiap hari dimulai dari jam 6.05
+	* tidak berjalan pada hari sabtu
+c. Setelah men-download gambar, kita ditugaskan untuk mem-buat script untuk men-sortir gambar tersebut. nantinya akan dibuat folder "./kenangan" "./duplicate". gambar akan bernama "kenangan_NO". Namun jika ter indikasi gambar yang identik, akan membuang 1 gambar ke "./duplikat" dan ber-format nama "duplicate_NO". saat gambar habis untuk di sortir, kita membuat backup seluruh log menjadi ekstensi ".log.bak".
+#
+### Soal3a
+Pertama-tama, kita membuat file dengan nama "no3.sh". bash script ini akan berfungsi selain mendowonload, juga untuk men sortir gambar gambar
