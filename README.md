@@ -1,8 +1,8 @@
 # SoalShiftSISOP20_modul1_F08
 Soal Shift Sistem Operasi 2020
 #
-1. Sheinna Yendri (18-038)
-2. Muhammad Rafi Yudhistira (18-115)
+1. Sheinna Yendri (05111840000038)
+2. Muhammad Rafi Yudhistira (05111840000115)
 #
 1. [Soal1](#soal1)
 2. [Soal2](#soal2)
@@ -235,7 +235,7 @@ untuk bagian 3b, kita akan membuat crontab agar pendownload-an bisa dilakukan se
 
 #
 
-### soal3c
+### Soal3c
 setelah file di download, kita membuat script untuk men-sortir gambar untuk menentukan apakah dia masuk ./duplikat atau masuk ./kenangan. codingannya:
 ```bash
 readarray -t arr < /home/rapuyy/Downloads/tugas/prak1/no3/location.log
