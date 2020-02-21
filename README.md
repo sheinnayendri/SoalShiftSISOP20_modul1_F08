@@ -267,9 +267,9 @@ do
 	if [ $flag -eq 0 ] 
 	then 
 		mv /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$(($a+1))".jpeg /home/rapuyy/Downloads/tugas/prak1/no3/kenangan/kenangan_"$(($nomer+1))".jpeg
-		echo case1
+		#echo case1
 	else 
-		echo case2
+		#echo case2
 		mv /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$(($a+1))".jpeg /home/rapuyy/Downloads/tugas/prak1/no3/duplicate/duplicate_"$(($nomer2+1))".jpeg
 	fi
 
