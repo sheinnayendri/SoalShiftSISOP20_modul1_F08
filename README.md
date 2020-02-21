@@ -202,6 +202,25 @@ b. Membuat penjadwalan untuk mendownload seperti yang di jelaskan soal a, dengan
 	* setiap hari dimulai dari jam 6.05
 	* tidak berjalan pada hari sabtu
 c. Setelah men-download gambar, kita ditugaskan untuk mem-buat script untuk men-sortir gambar tersebut. nantinya akan dibuat folder "./kenangan" "./duplicate". gambar akan bernama "kenangan_NO". Namun jika ter indikasi gambar yang identik, akan membuang 1 gambar ke "./duplikat" dan ber-format nama "duplicate_NO". saat gambar habis untuk di sortir, kita membuat backup seluruh log menjadi ekstensi ".log.bak".
+
 #
+
 ### Soal3a
-Pertama-tama, kita membuat file dengan nama "no3.sh". bash script ini akan berfungsi selain mendowonload, juga untuk men sortir gambar gambar
+```bash
+#! /bin/bash
+
+mkdir /home/rapuyy/Downloads/tugas/prak1/no3/kenangan
+mkdir /home/rapuyy/Downloads/tugas/prak1/no3/duplicate
+
+ > /home/rapuyy/Downloads/tugas/prak1/no3/wget.log   
+ > /home/rapuyy/Downloads/tugas/prak1/no3/location.log 
+
+for ((a=1; a<=28; a=a+1))
+	do
+	wget -a /home/rapuyy/Downloads/tugas/prak1/no3/wget.log "https://loremflickr.com/320/240/cat" -O /home/rapuyy/Downloads/tugas/prak1/no3/pdkt_kusuma_"$a".jpeg 
+#	cat rapuyy.txt >> wget.log
+done
+
+grep "Location" /home/rapuyy/Downloads/tugas/prak1/no3/wget.log > /home/rapuyy/Downloads/tugas/prak1/no3/location.log
+
+```
