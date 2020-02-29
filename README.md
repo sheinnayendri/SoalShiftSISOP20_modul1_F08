@@ -206,7 +206,7 @@ c. Setelah men-download gambar, kita ditugaskan untuk mem-buat script untuk men-
 #
 
 ### Soal3a
-Pertama-tama, kita membuat file dengan nama "no3.sh". bash script ini akan berfungsi selain mendowonload, juga untuk men sortir gambar-gambar apakah dia akan masuk ./duplicate atau ./kenangan. berikut adalah script "no3.sh" bagian untuk mendownload 28 file gambar:
+Pertama-tama, kita membuat file dengan nama "soal3.sh". bash script ini akan berfungsi selain mendowonload, juga untuk men sortir gambar-gambar apakah dia akan masuk ./duplicate atau ./kenangan. berikut adalah script "soal3.sh" bagian untuk mendownload 28 file gambar:
 ```bash
 #! /bin/bash
 
@@ -231,12 +231,12 @@ disitu kami melakukan perulangan sebanyak 28 kali menggunakan for. selagi mendow
 
 ### Soal3b
 untuk bagian 3b, kita akan membuat crontab agar pendownload-an bisa dilakukan secara otomatis dengan syarat sesuai soal. berikut adalah crontab nya :
-> 5 6-23/8 * * 0-5 bash /home/rapuyy/Downloads/tugas/prak1/no3/no3.sh
+> 5 6-23/8 * * 0-5 bash /home/rapuyy/Downloads/tugas/prak1/no3/soal3.sh
 
 #
 
 ### Soal3c
-setelah file di download, kita membuat script untuk men-sortir gambar untuk menentukan apakah dia masuk ./duplikat atau masuk ./kenangan. codingannya:
+setelah file di download, kita membuat script untuk men-sortir gambar untuk menentukan apakah dia masuk ./duplicate atau masuk ./kenangan. algoritma yang kami gunakan adalah memasukkan location.log menjadi array dimana setiap bariisnya mempresentasikan urutan file dari gambar "pdkt_kusuma_a+1pg". setiap index a dari array location dicek oleh i yang dimulai dari 0 sebanyak a-1 kali.jika saat di indeks a dari array sama isinya dengan i maka file "pdkt_kusuma_a+1.jpg" akan di pindahkan ke folder /duplicate sesuai dengan format penamaan, jika tidak ada yang sama, maka akan dipindahkan ke folder /kenangan sesuai dengan format penamaan. berikut adalah kodingan dari script sortir gambar:
 ```bash
 readarray -t arr < /home/rapuyy/Downloads/tugas/prak1/no3/location.log
 flag=0
